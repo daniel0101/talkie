@@ -16,5 +16,6 @@ class RepliesController extends Controller
             'body'=>request('body'),
             'user_id'=>Auth::user()->id
        ]);
+       return redirect()->back();
    }
 }
