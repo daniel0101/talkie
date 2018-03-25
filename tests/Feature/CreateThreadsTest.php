@@ -14,7 +14,7 @@ class CreateThreadsTest extends TestCase
     /** @test */ 
     public function guest_cannot_create_a_thread(){
         $this->withoutExceptionHandling();
-        $thread = factory('App\Thread')->make();
+        $thread = make('App\Thread');
         $this->expectException(AuthenticationException::class); 
         $this->post('/threads',$thread->toArray());        
     }
@@ -22,10 +22,10 @@ class CreateThreadsTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_create_new_talkie_thread(){
         //given a new user
-        $user =  $this->actingAs(factory('App\User')->create());
+        $this->signIn(); 
         //user post a thread
         // --make the thread first
-        $thread = factory('App\Thread')->make();
+        $thread = make('App\Thread');
         $this->post('/threads',$thread->toArray());
         //when we vist the threads page
         $response =  $this->get('/threads');
