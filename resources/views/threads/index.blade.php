@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Talkie</div>
-
                 <div class="card-body">
                     @foreach($threads as $thread)
                     <article>
