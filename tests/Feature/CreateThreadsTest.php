@@ -20,7 +20,7 @@ class CreateThreadsTest extends TestCase
     public function guest_cannot_create_a_thread(){
         $this->withExceptionHandling();
 
-        $this->get('/threads/create-thread')
+        $this->get('/threads/create')
             ->assertRedirect('/login'); 
             
         $this->post('/threads')
